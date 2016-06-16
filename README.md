@@ -31,13 +31,13 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://imgur.com/G7Ofj9S' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/G7Ofj9S' title='Bakhiet ToDo App' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+I had trouble downloading Android Studio, using git, and creating my gif. As well as understanding how the various parts of the app interacted.
 
 ## License
 
