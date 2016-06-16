@@ -1,6 +1,7 @@
 package com.codepath.flixster;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,13 @@ import java.util.ArrayList;
 
 public class MoviesAdapter extends ArrayAdapter<Movie> {
 
+
+    private static class ViewHolder {
+        ImageView ivPoster;
+        TextView tvTitle;
+        TextView tvOverview;
+    }
+
     public MoviesAdapter(Context context, ArrayList<Movie> movies) {
         super(context, R.layout.item_movie, movies);
     }
@@ -25,24 +33,49 @@ public class MoviesAdapter extends ArrayAdapter<Movie> {
         // Get the data item for this position
         Movie movie = getItem(position);
 
+        ViewHolder viewHolder;
+
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_movie, parent, false);
+
+            viewHolder = new ViewHolder();
+
+            // Lookup view for data population
+            viewHolder.ivPoster = (ImageView) convertView.findViewById(R.id.ivMovieImages);
+            viewHolder.ivPoster.setImageResource(0);
+
+            viewHolder.tvTitle = (TextView) convertView.findViewById(R.id.tvTitle);
+            viewHolder.tvOverview = (TextView) convertView.findViewById(R.id.tvOverview);
+
+
+            //ivPoster.set
+            int orientation = getContext().getResources().getConfiguration().orientation;
+
+            if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+                Picasso.with(getContext()).load(movie.getPosterUrl()).into(viewHolder.ivPoster);
+
+            } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                Picasso.with(getContext()).load(movie.getBackDropUrl()).into(viewHolder.ivPoster);
+            }
+
+            convertView.setTag(viewHolder);
+
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        // Lookup view for data population
-        TextView  tvTitle = (TextView) convertView.findViewById(R.id.tvTitle);
-        ImageView  ivPoster = (ImageView) convertView.findViewById(R.id.ivPoster);
+        viewHolder.tvTitle.setText(movie.getTitle());
+        viewHolder.tvOverview.setText(movie.getOverview());
 
-        // Populate the data into the template view using the data object
-        tvTitle.setText(movie.title);
+        int orientation = getContext().getResources().getConfiguration().orientation;
 
-        Log.d("MoviesAdapter", "Position: " + position);
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+            Picasso.with(getContext()).load(movie.getPosterUrl()).into(viewHolder.ivPoster);
 
-        //ivPoster.set
-
-        String imageUri = "https://i.imgur.com/tGbaZCY.jpg";
-        Picasso.with(getContext()).load(imageUri).into(ivPoster);
+        } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            Picasso.with(getContext()).load(movie.getBackDropUrl()).into(viewHolder.ivPoster);
+        }
 
         // Return the completed view to render on screen
         return convertView;
