@@ -14,7 +14,10 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
+
 public class MoviesAdapter extends ArrayAdapter<Movie> {
+
 
 
     private static class ViewHolder {
@@ -49,15 +52,6 @@ public class MoviesAdapter extends ArrayAdapter<Movie> {
             viewHolder.tvOverview = (TextView) convertView.findViewById(R.id.tvOverview);
 
 
-            //ivPoster.set
-            int orientation = getContext().getResources().getConfiguration().orientation;
-
-            if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-                Picasso.with(getContext()).load(movie.getPosterUrl()).into(viewHolder.ivPoster);
-
-            } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                Picasso.with(getContext()).load(movie.getBackDropUrl()).into(viewHolder.ivPoster);
-            }
 
             convertView.setTag(viewHolder);
 
@@ -71,10 +65,15 @@ public class MoviesAdapter extends ArrayAdapter<Movie> {
         int orientation = getContext().getResources().getConfiguration().orientation;
 
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-            Picasso.with(getContext()).load(movie.getPosterUrl()).into(viewHolder.ivPoster);
+
+            Picasso.with(getContext()).load(movie.getPosterUrl())
+                    .placeholder(R.drawable.camera_icon)
+                    .transform(new RoundedCornersTransformation(10, 10)).into(viewHolder.ivPoster);
 
         } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            Picasso.with(getContext()).load(movie.getBackDropUrl()).into(viewHolder.ivPoster);
+            Picasso.with(getContext()).load(movie.getBackDropUrl())
+                    .placeholder(R.drawable.camera_icon)
+                    .transform(new RoundedCornersTransformation(10, 10)).into(viewHolder.ivPoster);
         }
 
         // Return the completed view to render on screen
