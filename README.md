@@ -1,29 +1,29 @@
-# Pre-work -SimpleToDo
+# Flixster
 
-SimpleToDo is an android app that allows building a todo list and basic todo items management functionality including adding new items, editing and deleting an existing item.
+Flixster is an app that allows the user to get information about movies including the title, poster image, and a synopsis.
 
 Submitted by: Mo Bakhiet
 
-Time spent: 4 hours spent in total
+Time spent: 12 hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-* [x] User can **successfully add and remove items** from the todo list
-* [x] User can **tap a todo item in the list and bring up an edit screen for the todo item** and then have any changes to the text reflected in the todo list.
-* [x] User can **persist todo items** and retrieve them properly on app restart
+* [x] User can view a list of movies (title, poster image, and overview) currently playing in theaters from the Movie
+Database API
 
 The following **optional** features are implemented:
 
-* [ ] Persist the todo items [into SQLite](http://guides.codepath.com/android/Persisting-Data-to-the-Device#sqlite) instead of a text file
-* [ ] Improve style of the todo items in the list [using a custom adapter](http://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView)
-* [ ] Add support for completion due dates for todo items (and display within listview item)
-* [ ] Use a [DialogFragment](http://guides.codepath.com/android/Using-DialogFragment) instead of new Activity for editing items
-* [ ] Add support for selecting the priority of each todo item (and display in listview item)
-* [ ] Tweak the style improving the UI / UX, play with colors, images or backgrounds
-
+* [x] Displays a nice default placeholder graphic for each image during loading (read more about Picasso) (1 point)
+* [x] Views should be responsive for both landscape/portrait mode and fully optimized for performance with the ViewHolder pattern. (2 points)
+* [x] Improve the user interface through styling and coloring (1 to 5 points depending on the difficulty of UI improvements) (I played with the margins to make it look better)
+* [ ] Expose details of movie (ratings using RatingBar, popularity, and synopsis) in a separate activity. (3 points)
+* [ ] Stretch: For popular movies (i.e. a movie voted for more than 5 stars), the full backdrop image of the movie is displayed. Otherwise, a poster image, the movie title, and overview is listed. Use Heterogenous ListViews and use different ViewHolder layout files for popular movies and less popular ones. (2 points)
+* [x] Stretch: Add a rounded corners for the images using the Picasso transformations. (1 point)
+* [ ] Stretch: Apply the popular ButterKnife annotation library to reduce view boilerplate. (2 points)
 The following **additional** features are implemented:
+* [ ] Stretch: Allow video posts to be played in full-screen using the YouTubePlayerView (3 points)
 
 * [ ] List anything else that you can get done to improve the app functionality!
 
@@ -31,17 +31,17 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/G7Ofj9S' title='Bakhiet ToDo App' width='' alt='Video Walkthrough' />
+<img src='http://imgur.com/Q87hfKB' title='Mo Bakhiet Flixster' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-I had trouble downloading Android Studio, using git, and creating my gif. As well as understanding how the various parts of the app interacted.
+I had difficulty rotating the views and using ViewHolder. I worked exposing details but did not finish. Overall I had quite a bit of difficulty understanding on how the various classes and xml files interacted with the adapter class but I think I'm beginning to understand better.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2016 Mohammad Bakhiet
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
