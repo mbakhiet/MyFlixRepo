@@ -25,6 +25,10 @@ public class Movie {
         return String.format("https://image.tmdb.org/t/p/w780/%s", backDropUrl);
     }
 
+    public String getVoteAve() {
+        return voteAvg.toString();
+    }
+
     public String getOverview() {
         return overview;
     }
@@ -33,12 +37,14 @@ public class Movie {
     public String posterUrl;
     public String backDropUrl;
     public String overview;
+    public Double voteAvg;
 
     public Movie(JSONObject jsonObject) throws JSONException {
         this.posterUrl = jsonObject.getString("poster_path");
         this.title = jsonObject.getString("original_title");
         this.backDropUrl = jsonObject.getString("backdrop_path");
         this.overview = jsonObject.getString("overview");
+        this.voteAvg = jsonObject.getDouble("vote_average");
     }
 
     public static ArrayList<Movie> fromJSONArray(JSONArray array) {

@@ -1,8 +1,12 @@
 package com.codepath.flixster;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.codepath.flixster.Movie;
@@ -36,7 +40,7 @@ public class MoviesActivity extends AppCompatActivity {
 
         //2. get the ListView that we want to populate
 
-        ListView lvMovies = (ListView)findViewById(R.id.lvMovies);
+        ListView lvMovies = (ListView) findViewById(R.id.lvMovies);
 
         //3. create an ArrayAdapter
 
@@ -48,7 +52,7 @@ public class MoviesActivity extends AppCompatActivity {
             lvMovies.setAdapter(adapter);
         }
 
-        client.get(url, new JsonHttpResponseHandler(){
+        client.get(url, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 
@@ -62,6 +66,17 @@ public class MoviesActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+            }
+
+
+            public void onItemClick(Movie movie) {
+                Intent i = new Intent(MoviesActivity.this, DescriptionActivity.class);
+
+                i.putExtra("overview", movie.getOverview());
+                i.putExtra("title", movie.getTitle());
+                i.putExtra("rating", movie.getVoteAve());
+
+                startActivity(i);
             }
 
             @Override
