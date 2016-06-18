@@ -37,7 +37,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-I had difficulty rotating the views and using ViewHolder. I worked exposing details but did not finish. Overall I had quite a bit of difficulty understanding on how the various classes and xml files interacted with the adapter class but I think I'm beginning to understand better.
+I had difficulty rotating the views and using ViewHolder. I worked exposing details but did not finish. Overall I had quite a bit of difficulty understanding on how the various classes and xml files interacted with the adapter class but I think I'm beginning to understand better. I've also had difficulty with git (I'm now realizing that I overwrote the todo app rather than making a new repository and that I wasn't able to get the gif working properly within github. Here's the link: http://imgur.com/Q87hfK
 
 ## License
 
