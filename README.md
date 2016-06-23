@@ -31,7 +31,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-gif: http://imgur.com/Q87hfKB
+<img src='http://imgur.com/Q87hfKB.gif' title='Bakhiet ToDo App' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
